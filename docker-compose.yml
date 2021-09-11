@@ -1,0 +1,9 @@
+version: "3.9"                          # Use specific compose file version
+services:
+    node:                               # Name of service
+        build: ./                       # Path to Dockerfile
+        image: cardano_sandbox_img      # Name of image to build
+        volumes:                        # Volumes to mount
+            - ./shared:/mnt/shared
+        network_mode: "bridge"          # Network mode for service
+        command: [/root/cardano-data/scripts/run_cardano_node_testnet.sh] # Script to run when container spins up
