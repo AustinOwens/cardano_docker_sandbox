@@ -1,2 +1,2 @@
-# cardano_sandbox
-Sandbox for learning Cardano
+# Cardano Sandbox
+Sandbox for learning how to interact with the crypto currency Cardano and its utilities.
