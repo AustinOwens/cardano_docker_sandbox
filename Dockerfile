@@ -78,7 +78,28 @@ RUN mkdir -p ~/.local/bin && cd ~/cardano-src/cardano-node \
     && cp -p "$(./scripts/bin-path.sh cardano-node)" ~/.local/bin/ \
     && cp -p "$(./scripts/bin-path.sh cardano-cli)" ~/.local/bin/
 
-# Add ~/.local/bin to PATH so system can find cardano-node and cardano-cli
+# Download cardano-wallet
+RUN cd ~/cardano-src && git clone https://github.com/input-output-hk/cardano-wallet.git \
+    && cd cardano-wallet && git fetch --all --recurse-submodules --tags \
+    && git checkout tags/v2021-09-09
+
+# Configure cardano-wallet
+# Note: Instructions from https://developers.cardano.org/docs/get-started/installing-cardano-wallet
+# say to use: cabal configure --with-compiler=ghc-8.10.4 --constraint="random<1.2"
+# but this fails to build. Running it without the --constraint="random<1.2" makes it work.
+# refer to issue: https://github.com/input-output-hk/cardano-wallet/issues/2824
+RUN cd ~/cardano-src/cardano-wallet \
+    && cabal configure --with-compiler=ghc-8.10.4
+
+# Build  cardano-wallet
+RUN cd ~/cardano-src/cardano-wallet && cabal build all
+
+# Install cardano-wallet
+RUN cp -p ~/cardano-src/cardano-wallet/dist-newstyle/build/x86_64-linux/ghc-8.10.4/\
+cardano-wallet-2021.9.9/x/cardano-wallet/build/cardano-wallet/cardano-wallet ~/.local/bin/
+
+# Add ~/.local/bin to PATH so system can find cardano-node, cardano-cli, and
+# cardano-wallet
 ENV PATH="~/.local/bin:$PATH"
 
 # Install software packages from ubuntu repository for general dev

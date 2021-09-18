@@ -4,7 +4,7 @@ A bare-bones sandbox for developing with Cardano tools/utilities. Includes lates
 THIS IS ONLY A SANDBOX AND NOT MEANT FOR PRODUCTION USE
 
 # What's Included
-Currently, only `cardano-node` and `cardano-cli` utilities are included. I plan on adding more Cardano utilities soon. 
+Currently, only `cardano-node`, `cardano-cli`, and `cardano-wallet` utilities are included. I plan on adding more Cardano utilities soon.
 
 # Dependencies 
 [Docker 20.10.8+](https://docs.docker.com/get-docker/)
@@ -59,7 +59,7 @@ Output:
 
 If you `exit` from the bash shell from within the container, the container will continue to run with the node instance still actively syncing with the blockchain.
 
-From your host you can call helper scripts like this:
+From your host you can call helper scripts like this (I plan on adding more to this folder):
 
 ```
 docker compose exec node /root/cardano-data/scripts/query_tip.sh
