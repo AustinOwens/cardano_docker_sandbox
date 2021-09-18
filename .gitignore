@@ -1,3 +1,4 @@
 shared/cardano_node_data/db
 shared/cardano_node_data/node.log
 shared/scripts/wallet/keys
+shared/scripts/wallet/tmp_transaction/

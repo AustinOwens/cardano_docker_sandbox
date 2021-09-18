@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [[ $# -eq 0 ]] ; then
-    echo 'Usage: generate_wallet.sh WALLET_NAME'
+if [[ $# -ne 1 ]] ; then
+    echo 'Usage: generate_wallet.sh <WALLET_NAME>'
     exit 0
 fi
 
@@ -15,6 +15,7 @@ mkdir -p ./keys
 # GENERATE PAYMENT KEY-PAIR
 # --verification-key-file : points to the path where you want to save the vkey
 # file
+# 
 # --signing-key-file : points to the path where you want to save the skey file
 #
 # The .vkey is a public verification key used to derive a Cardano wallet 
@@ -32,7 +33,9 @@ cardano-cli address key-gen \
 # GENERATE WALLET ADDRESS
 # --payment-verification-key-file : The path to the vkey file to be used for 
 # the derivation.
+# 
 # --out-file : The path to save the wallet address file.
+# 
 # --testnet-magic : The NetworkMagic of the network that where you want to 
 # use the wallet address.
 #

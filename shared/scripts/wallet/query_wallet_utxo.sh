@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [[ $# -eq 0 ]] ; then
-    echo 'Usage: query_wallet_utxo.sh WALLET_NAME'
+if [[ $# -ne 1 ]] ; then
+    echo 'Usage: query_wallet_utxo.sh <WALLET_NAME>'
     exit 0
 fi
 
