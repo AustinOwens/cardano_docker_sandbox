@@ -122,9 +122,9 @@ COPY ./docker-entrypoint.sh /usr/local/bin
 ENTRYPOINT ["/usr/bin/tini", "-v", "--", "/usr/local/bin/docker-entrypoint.sh"]
 
 # Adding environment variables for custom cardano scripts and cardano-cli
-ENV CARDANO_CONFIG_PATH="/root/cardano-data/configs"
-ENV CARDANO_DB_PATH="/root/cardano-data/db"
-ENV CARDANO_NODE_SOCKET_PATH="/root/cardano-data/db/node.socket"
+ENV CARDANO_CONFIG_PATH="/root/cardano_node_data/configs"
+ENV CARDANO_DB_PATH="/root/cardano_node_data/db"
+ENV CARDANO_NODE_SOCKET_PATH="/root/cardano_node_data/db/node.socket"
 
 # Default cmd when starting the container if not overwritten by user.
 CMD /bin/bash

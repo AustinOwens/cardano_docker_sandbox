@@ -6,4 +6,4 @@ services:
         volumes:                        # Volumes to mount
             - ./shared:/mnt/shared
         network_mode: "bridge"          # Network mode for service
-        command: [/root/cardano-data/scripts/run_cardano_node_testnet.sh] # Script to run when container spins up
+        command: [/root/scripts/cardano_node/run_cardano_node_testnet.sh] # Script to run when container spins up

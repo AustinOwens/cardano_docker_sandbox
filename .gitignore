@@ -1,1 +1,3 @@
-shared/cardano-data/db/*
+shared/cardano_node_data/db
+shared/cardano_node_data/node.log
+shared/scripts/wallet/keys
